@@ -31,7 +31,7 @@ h1 {
   align-items: flex-start;
   gap: 30px;
   width: 100%;
-  max-width: 1200px;
+  max-width: 1600px;
   padding: 0 20px;
   box-sizing: border-box;
 }
@@ -121,15 +121,15 @@ h1 {
 }
 
 .cat-black {
-  background-image: url("/assets/SideWalk_Black.png");
-  top: 420px;
+  background-image: url("./assets/SideWalk_Black.png");
+  top: 440px;
   left: 0;
   transform: scale(1);
 }
 
 .cat-orange {
-  background-image: url("/assets/SideWalk_Orange.png");
-  top: 480px;
+  background-image: url("./assets/SideWalk_Orange.png");
+  top: 500px;
   left: 0;
   transform: scale(1);
 }
@@ -157,10 +157,12 @@ h1 {
   user-select: text;
   min-height: 625px;
   box-sizing: border-box;
+  overflow-wrap: break-word;
 }
 
 /* Tiêu đề lượt trả lời */
 #info-turn {
+  white-space: nowrap;
   font-size: 1.3rem;
   font-weight: 600;
   margin-bottom: 30px;
@@ -178,7 +180,10 @@ h1 {
   margin-bottom: 25px;
   text-align: center;
   letter-spacing: 0.03em;
-  width: 100%;
+  /* white-space: nowrap;  -- bỏ dòng này */
+  word-wrap: break-word; /* thêm để xuống dòng */
+  overflow-wrap: break-word; /* thêm để xuống dòng */
+  max-width: 100%; /* đảm bảo không vượt quá container */
 }
 
 /* Container đáp án */
@@ -218,62 +223,27 @@ h1 {
   color: white;
 }
 
+/* Nút bắt đầu */
 #start-btn {
   background: linear-gradient(45deg, #6a11cb, #2575fc);
   color: white;
   font-weight: 700;
-  font-size: 1.3rem;
-  padding: 14px 40px;
+  font-size: 1rem;
+  padding: 10px 100px;
   border: none;
-  border-radius: 50px;
+  border-radius: 80px;
   cursor: pointer;
-  box-shadow: 0 0 8px #6a11cb, 0 0 20px #2575fc, 0 0 30px #6a11cb,
-    0 0 40px #2575fc;
-  transition: all 0.3s ease;
-  position: relative;
-  overflow: hidden;
+  box-shadow: 0 0 8px #6a11cb;
+  transition: box-shadow 0.3s ease, transform 0.3s ease;
+  text-align: center;
+  white-space: nowrap;
   user-select: none;
 }
 
-#start-btn::before {
-  content: "";
-  position: absolute;
-  top: -50%;
-  left: -50%;
-  width: 200%;
-  height: 200%;
-  background: radial-gradient(
-    circle at center,
-    rgba(255, 255, 255, 0.4),
-    transparent 70%
-  );
-  transform: rotate(45deg);
-  animation: shine 2.5s linear infinite;
-  pointer-events: none;
-  border-radius: 50%;
-  z-index: 1;
-}
-
 #start-btn:hover {
-  box-shadow: 0 0 12px #8f3eff, 0 0 25px #4096ff, 0 0 40px #8f3eff,
-    0 0 55px #4096ff;
+  box-shadow: 0 0 15px 5px #6a11cb;
   transform: scale(1.05);
 }
-
-@keyframes shine {
-  0% {
-    transform: rotate(45deg) translateX(-100%);
-    opacity: 0;
-  }
-  50% {
-    opacity: 1;
-  }
-  100% {
-    transform: rotate(45deg) translateX(100%);
-    opacity: 0;
-  }
-}
-
 /* Nút trả lời */
 #submit-answer {
   background: #5b5ede;
@@ -313,6 +283,7 @@ h1 {
   box-shadow: 0 4px 20px rgba(0, 0, 0, 0.7);
   color: #f0f3ff;
   text-align: center;
+  white-space: nowrap;
   user-select: text;
 }
 
@@ -321,4 +292,50 @@ h1 {
   font-weight: 700;
   margin-bottom: 20px;
   letter-spacing: 0.04em;
+}
+
+#scoreboard {
+  display: flex;
+  justify-content: center;
+  gap: 50px;
+  font-size: 20px;
+  font-weight: bold;
+  color: white;
+  margin-bottom: 15px;
+  white-space: nowrap;
+}
+
+.score {
+  background: rgba(0, 0, 0, 0.3);
+  padding: 10px 25px;
+  border-radius: 12px;
+  box-shadow: 0 0 10px rgba(255, 255, 255, 0.2);
+}
+
+.black-score {
+  color: blue; /* tím */
+}
+
+.orange-score {
+  color: #fc7c29; /* cam */
+}
+
+.title-container {
+  border: 2px solid #000; /* viền bảng */
+  padding: 16px; /* khoảng cách bên trong */
+  text-align: center; /* căn giữa chữ */
+  max-width: 600px; /* chiều rộng tối đa */
+  margin: 20px auto; /* canh giữa container */
+  border-radius: 8px; /* bo góc nhẹ */
+  background-color: #2575fc; /* nền trắng hoặc tuỳ chọn */
+}
+.title-container h1 {
+  font-size: 2rem; /* cỡ chữ lớn */
+  margin: 0 0 8px 0; /* khoảng cách dưới */
+}
+.title-container h2 {
+  font-size: 1.2rem; /* nhỏ hơn h1 */
+  color: rgba(0, 0, 0, 0.6); /* chữ mờ mờ như slogan */
+  font-style: italic; /* tuỳ chọn nghiêng nếu thích */
+  margin: 0; /* bỏ khoảng cách dư */
 }

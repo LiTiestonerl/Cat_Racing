@@ -8,11 +8,17 @@
 </head>
 
 <body>
-  <h1>KHÔNG ĐUA ĐỜI KHÔNG NỂ</h1>
+  <audio id="bg-music" src="/public/assets/audio/backgroundmusic.mp3" autoplay loop></audio>
+  <div class="title-container">
+    <h1>CAT RACING</h1>
+    <h2>KHÔNG ĐUA ĐỜI KHÔNG NỂ</h2>
+  </div>
 
   <div class="game-container">
+    
     <div class="race-track">
       <div class="bg-slider">
+        
         <div class="bg-slide bg1"></div>
 
         <!-- <div class="bg-slide bg3"></div> -->
@@ -28,27 +34,39 @@
       <div id="cat-orange" class="cat-run cat-orange"></div>
     </div>
 
-    <div id="info-turn"></div>
+
+    <div id="scoreboard">
+      <div class="score black-score">Mèo Đen: <span id="score-black">0</span></div>
+      <div class="score orange-score">Mèo Cam: <span id="score-orange">0</span></div>
+      
+    </div>
+
 
     <div id="question-container" style="display:none;">
+      <div id="timer" style="font-size:1.2rem; margin-bottom: 15px; font-weight: 700; color: #f0f0f0;"></div>
       <div id="question-text"></div>
+      <div id="info-turn"></div>
       <div id="answers-container">
         <!-- Các đáp án sẽ được tạo ra bằng JS -->
       </div>
-      <button id="submit-answer" disabled>Trả lời</button>  
+      <button id="submit-answer" disabled>Trả lời</button>
     </div>
+    <button id="start-btn"><span> Bắt đầu trò chơi </span></button>
 
-    <button id="start-btn">Bắt đầu trò chơi</button>
+
 
     <div id="result-container" style="display:none;">
       <h2>Kết quả trò chơi</h2>
       <p id="result-text"></p>
-      <button id="restart-btn">Chơi lại</button>
+      <!-- <button id="restart-btn">Chơi lại</button> -->
     </div>
+  </div>
   </div>
 
 
-  <script src="public/app.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.5.1/dist/confetti.browser.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+  <script src="app.js"></script>
 </body>
 
 </html>
