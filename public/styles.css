@@ -72,33 +72,33 @@ h1 {
 }
 
 .bg1 {
-  background-image: url("/assets/bg1/2304x1296.png");
+  background-image: url("./assets/bg1/2304x1296.png");
 }
 .bg2 {
-  background-image: url("/assets/bg2/2304x1296.png");
+  background-image: url("./assets/bg2/2304x1296.png");
 }
 .bg3 {
-  background-image: url("/assets/bg3/2304x1296.png");
+  background-image: url("./assets/bg3/2304x1296.png");
 }
 .bg4 {
-  background-image: url("/assets/bg4/2304x1296.png");
+  background-image: url("./assets/bg4/2304x1296.png");
 }
 .bg5 {
-  background-image: url("/assets/bg5/2304x1296.png");
+  background-image: url("./assets/bg5/2304x1296.png");
 }
 .bg6 {
-  background-image: url("/assets/bg6/2304x1296.png");
+  background-image: url("./assets/bg6/2304x1296.png");
 }
 .bg7 {
-  background-image: url("/assets/bg7/2304x1296.png");
+  background-image: url("./assets/bg7/2304x1296.png");
 }
 .bg8 {
-  background-image: url("/assets/bg8/2304x1296.png");
+  background-image: url("./assets/bg8/2304x1296.png");
 }
 
 /* Lặp lại bg1 ở cuối để chuyển động mượt */
 .bg1-repeat {
-  background-image: url("/assets/bg1/2304x1296.png");
+  background-image: url("./assets/bg1/2304x1296.png");
 }
 
 @keyframes bgSlideMove {
