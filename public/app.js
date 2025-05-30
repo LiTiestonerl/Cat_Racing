@@ -19,7 +19,7 @@ const scoreOrangeEl = document.getElementById("score-orange");
 const timerElem = document.getElementById("timer");
 
 // --- Constants & Variables ---
-const moveStep = 50; // Khoảng cách mèo tiến mỗi câu trả lời đúng
+const moveStep = 100; // Khoảng cách mèo tiến mỗi câu trả lời đúng
 const finishLine = 475; // 600 - 125 (chiều rộng mèo)
 const backgrounds = [
   "./assets/bg1/2304x1296.png",
@@ -35,36 +35,107 @@ const backgrounds = [
 // Danh sách câu hỏi mẫu
 const questions = [
   {
-    q: "Tham nhũng ảnh hưởng lớn nhất đến điềnhũng ảnh hưởng lớn nhất đến điềnhũng ảnh hưởng lớn nhất đến điềnhũng ảnh hưởng lớn nhất đến điềnhũng ảnh hưởng lớn nhất đến điềnhũng ảnh hưởng lớn nhất đến điều gì trong xã hội?",
-    choices: ["Phát triển kinh tế", "Truyền thông", "Giáo dục", "Giải trí"],
-    a: "Phát triển kinh tế",
-  },
-  {
-    q: "Triết gia nào nổi tiếng với câu nói 'Quyền lực làm tha hóa con người'?",
-    choices: ["Plato", "Aristotle", "Lord Acton", "Nietzsche"],
-    a: "Lord Acton",
-  },
-  {
-    q: "Trong triết học, tham nhũng được xem là biểu hiện của:",
+    q: "1. Theo Luật Phòng, chống tham nhũng 2018, tham nhũng là gì?",
     choices: [
-      "Tính ích kỷ",
-      "Tính bao dung",
-      "Tính nhân văn",
-      "Tính chính trực",
+      "Là hành vi vi phạm pháp luật hình sự.",
+      "Là hành vi của người có chức vụ, quyền hạn lợi dụng chức vụ vì vụ lợi.",
+      "Là hành vi thiếu trách nhiệm trong công việc",
+      "Là hành vi thiếu đạo đức cá nhân.",
     ],
-    a: "Tính ích kỷ",
+    a: "Là hành vi của người có chức vụ, quyền hạn lợi dụng chức vụ vì vụ lợi.",
   },
   {
-    q: "Giải pháp hiệu quả nhất để chống tham nhũng là gì?",
+    q: "2. Theo Chủ tịch Hồ Chí Minh, tham nhũng là gì?",
     choices: [
-      "Tăng cường minh bạch và giám sát",
-      "Giữ bí mật các hoạt động",
-      "Tăng thuế cho người dân",
-      "Giảm đầu tư vào giáo dục",
+      "là một hành vi thiếu đạo đức.",
+      "Là “ăn cắp của công làm của tư.”",
+      "Là một căn bệnh xã hội không thể chữa trị.",
+      "Là vấn đề tất yếu trong quá trình phát triển.",
     ],
-    a: "Tăng cường minh bạch và giám sát",
+    a: "Là “ăn cắp của công làm của tư.”",
+  },
+  {
+    q: "3. Một trong những đặc điểm của hành vi tham nhũng là gì?",
+    choices: [
+      "Dễ phát hiện và xử lý.",
+      "Tinh vi, ẩn giấu, thường có tính móc nối.",
+      "Chỉ xảy ra trong lĩnh vực tài chính",
+      "Không gây hậu quả nghiêm trọng.",
+    ],
+    a: "Tinh vi, ẩn giấu, thường có tính móc nối.",
+  },
+  {
+    q: "4. Tham nhũng có mối quan hệ như thế nào với tiêu cực?",
+    choices: [
+      "Không liên quan đến nhau",
+      "Tham nhũng là nguyên nhân của tiêu cực.",
+      "Tham nhũng là biểu hiện cụ thể của tiêu cực.",
+      "Tiêu cực làm giảm nguy cơ tham nhũng.",
+    ],
+    a: "Tham nhũng là biểu hiện cụ thể của tiêu cực.",
+  },
+  {
+    q: "5. Mục tiêu cuối cùng của công tác phòng, chống tham nhũng là gì?",
+    choices: [
+      "Bắt giữ toàn bộ đối tượng phạm tội.",
+      "Làm trong sạch Đảng và bộ máy Nhà nước, phát triển đất nước.",
+      "Tăng cường quyền lực cho các cơ quan điều tra.",
+      "Loại bỏ toàn bộ cán bộ lãnh đạo.",
+    ],
+    a: "Làm trong sạch Đảng và bộ máy Nhà nước, phát triển đất nước.",
+  },
+  {
+    q: "6. Tác hại lớn nhất của tham nhũng là gì?",
+    choices: [
+      "Làm mất tiền của nhà nước.",
+      "Làm suy thoái lòng tin của nhân dân đối với Đảng và chế độ.",
+      "làm giảm tốc độ tăng trưởng kinh tế.",
+      "Tăng chi phí hành chính.",
+    ],
+    a: "Làm suy thoái lòng tin của nhân dân đối với đảng và chế độ.",
+  },
+  {
+    q: "7. Biện pháp nào sau đây được xem là trọng tâm trong công tác phòng, chống tham nhũng?",
+    choices: [
+      "xử lý hình sự",
+      "điều tra, truy tố",
+      "phòng ngừa từ sớm, từ xa, từ gốc",
+      "Tuyên truyền trên phương tiện truyền thông.",
+    ],
+    a: "phòng ngừa từ sớm, từ xa, từ gốc",
+  },
+  {
+    q: "8. Theo tư tưởng chỉ đạo, công tác chống tham nhũng cần thực hiện theo nguyên tắc nào?",
+    choices: [
+      "Ưu tiên xử lý cán bộ cấp thấp.",
+      "Không có vùng cấm, không có ngoại lệ.",
+      "Tập trung vào các địa phương lớn.",
+      "Chỉ xử lý khi có bằng chứng rõ ràng.",
+    ],
+    a: "Không có vùng cấm, không có ngoại lệ.",
+  },
+  {
+    q: "9. Thành tựu nào nổi bật trong 10 năm chống tham nhũng (2012–2022)?",
+    choices: [
+      "Xử lý hình sự hơn 10.000 vụ án.",
+      "Xử lý kỷ luật hơn 190 cán bộ cấp cao thuộc diện Trung ương quản lý.",
+      "Truy thu hơn 200.000 Tỷ Đồng từ những tội phạm tham nhũng.",
+      "Giảm được toàn bộ nạn tham nhũng vặt.",
+    ],
+    a: "Xử lý kỷ luật hơn 190 cán bộ cấp cao thuộc diện Trung ương quản lý.",
+  },
+  {
+    q: "10. Biện pháp nào giúp xây dựng văn hóa “không muốn, không cần” tham nhũng?",
+    choices: [
+      "Tăng mức phạt hành chính.",
+      "Cắt giảm nhân sự công vụ.",
+      "Xây dựng văn hóa liêm chính, cải thiện thu nhập, nâng cao đạo đức công vụ.",
+      "Ban hành thêm nhiều quy định kiểm tra.",
+    ],
+    a: "Xây dựng văn hóa liêm chính, cải thiện thu nhập, nâng cao đạo đức công vụ.",
   },
 ];
+
 
 let scores = { black: 0, orange: 0 };
 let askedQuestions = new Set();
