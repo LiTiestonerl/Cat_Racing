@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="vi">
+
+<head>
+  <meta charset="UTF-8" />
+  <title>Game Đua Mèo - Trả Lời Câu Hỏi</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+
+<body>
+  <h1>KHÔNG ĐUA ĐỜI KHÔNG NỂ</h1>
+
+  <div class="game-container">
+    <div class="race-track">
+      <div class="bg-slider">
+        <div class="bg-slide bg1"></div>
+
+        <!-- <div class="bg-slide bg3"></div> -->
+        <div class="bg-slide bg4"></div>
+        <!-- <div class="bg-slide bg5"></div> -->
+        <div class="bg-slide bg6"></div>
+        <!-- <div class="bg-slide bg7"></div> -->
+        <div class="bg-slide bg8"></div>
+        <!-- <div class="bg-slide bg2"></div> -->
+        <div class="bg-slide bg1-repeat"></div> <!-- lặp lại bg1 -->
+      </div>
+      <div id="cat-black" class="cat-run cat-black"></div>
+      <div id="cat-orange" class="cat-run cat-orange"></div>
+    </div>
+
+    <div id="info-turn"></div>
+
+    <div id="question-container" style="display:none;">
+      <div id="question-text"></div>
+      <div id="answers-container">
+        <!-- Các đáp án sẽ được tạo ra bằng JS -->
+      </div>
+      <button id="submit-answer" disabled>Trả lời</button>  
+    </div>
+
+    <button id="start-btn">Bắt đầu trò chơi</button>
+
+    <div id="result-container" style="display:none;">
+      <h2>Kết quả trò chơi</h2>
+      <p id="result-text"></p>
+      <button id="restart-btn">Chơi lại</button>
+    </div>
+  </div>
+
+
+  <script src="app.js"></script>
+</body>
+
+</html>
